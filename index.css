@@ -1,0 +1,170 @@
+:root {
+    --white: #fff;
+    --black: #000;
+
+    /* Primary colors*/
+    --primary-1: #1b3665;
+    --primary-2: #3467c0;
+    --primary-3: #4587fa;
+    --primary-4: #99befd;
+    --primary-5: #d0f3ef;
+
+    /* Neutral colors */
+    --neutral-1: #2c2c2c;
+    --neutral-2: #434343;
+    --neutral-3: #94868b;
+    --neutral-4: #d9cfd3;
+    --neutral-5: #f2ecee;
+
+    /* Accent-blue colors */
+    --accent-1: #fdc00f;
+    --accent-2: #ffd557;
+    --accent-3: #ffdf80;
+    --accent-4: #ffdf80;
+    --accent-5: #ffffff;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--neutral-5);
+    margin: 0;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+p {
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.box {
+    text-align: center;
+    border-radius: 30px;
+    background-color: white;
+    border:6px solid #2b8379!important;
+    box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    margin-bottom: 10px;
+}
+/* BUTTONS */
+.btn {
+    border-radius: 3px;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 13px 40px;
+    border: 0;
+    transition: background-color 200ms, color 200ms;
+    margin: 10px;    
+}
+
+.btn-default {
+    color: var(--white);
+    background-color: var(--primary-1);
+}
+
+.btn-default:hover,
+.btn-outline:hover {
+    color: var(--white);
+    background-color: var(--primary-2);
+    text-decoration: none;
+}
+
+.btn-default:active,
+.btn-outline:active {
+    color: var(--primary-1);
+    background-color: var(--primary-4);
+}
+
+.btn-default[disabled],
+.btn-outline[disabled] {
+    color: var(--primary-4);
+    background-color: var(--primary-5);
+    cursor: default;
+}
+
+.btn-accent {
+    color: var(--black);
+    background-color: var(--accent-1);
+}
+
+.btn-accent:hover {
+    color: var(--white);
+    background-color: var(--accent-2);
+    text-decoration: none;
+}
+
+.btn-accent:active {
+    color: var(--accent-1);
+    background-color: var(--accent-4);
+}
+
+.btn-accent[disabled] {
+    color: var(--accent-4);
+    background-color: var(--accent-5);
+    cursor: default;
+}
+
+.btn-right {
+    float: right !important;
+}
+
+.input {
+    font-size: 16px;
+    padding: 0.75em 0.5em;
+    min-width: 200px;
+    border: none;
+    border-left: 7px solid var(--primary-1);
+    transition: border-left-color 160ms;
+    background-color: white;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table thead {
+    background-color: var(--primary-1);
+    color: white;
+    border: 1px solid white;
+}
+
+.table th {
+    padding: 15px;
+}
+.table td {
+    vertical-align: top;
+    padding: 10px;
+}
+
+.table tbody {
+    font-size: 18px;
+    border: 1px solid white;
+}
+.table tbody tr:nth-child(2n) {
+    background-color: white;
+}
+
+.table tbody tr:nth-child(2n + 1) {
+    background-color: var(--neutral-5);
+}
+
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;    
+}
