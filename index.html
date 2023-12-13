@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="description" content="Small web app to draw names, have fun!">
+    <title>Acak Nama</title>
+    <link rel="stylesheet" href="acak.css">
+</head>
+<body>
+    <div id="root">
+      <!-- div untuk mengisi nama-nama peserta doorprize -->
+      <div class="container">
+          <h3 style="text-align: center;">Acak Nama untuk Doorprize!!!</h3>
+          <fieldset>
+              <legend>input nama</legend>
+              <label for="inputNama">Masukkan nama-nama yang akan diacak untuk mendapatkan Doorprize (pisahkan nama pada masing-masing baris)</label>
+              <textarea name="inputNama" id="inputNama" cols="80" rows="10" class="input" placeholder="pisahkan nama pada baris yang baru (enter)"></textarea>
+              <button type="submit" id="kirimNama" class="btn btn-accent">Kirim</button>
+          </fieldset>       
+        </div>
+    </div>
+  <script src="index.js"></script>
+</body>
+</html>
