@@ -16,16 +16,19 @@ kirimNama.addEventListener("click", (e)=>{
         <button class="btn btn-accent" onclick="pilihHadiah(document.getElementById('hdh'))">Tetapkan Hadiah</button>
         <b><span id="hdhTetap"></span></b>
       </fieldset>
-   </div>
-    <div class="container sticky" style="background-color: white; height: 200px;">
+  </div>
+    <div class="container sticky" style="background-color: white; height: 250px;">
+      <div style="text-align: center;">
     <button class="btn btn-default" id="acakNama">Acak Nama</button>
-    <button class="btn btn-accent" id="stopAcak">Stop</button>
+    </div>
     <div class="box" style="height: 100px;">            
       <h1 id="nama">XXXX XXXX</h1>
       </div>
+      <div id="hideKeluarkanNama">
+        <button class="btn btn-accent" id="keluarkanNama">Keluarkan Nama</button>
+      </div>
       </div>
       <div class="container">
-        <button class="btn btn-accent" id="keluarkanNama">Keluarkan Nama</button>
         <table class="table">
             <thead>
                 <tr>
@@ -55,36 +58,49 @@ function rndInt(min,max) {
 }          
 
 //fungsi pengacak nama
-function pengacak(isi,nama) {                
-  var namaAcak = setInterval(function() {
+function pengacak(isi,nama) {     
+  let maxSecond = 8000;
+  let second = 0;
+  acakNama.setAttribute("disabled", true);
+  acakNama.innerHTML = `<span class="loader"></span>`;
+  hideKeluarkanNama.style.display = "none";
+  let i = 1;
+  while (second <= maxSecond) {
+    second = second + (5*i);
+    setTimeout(() => {
       rnd = rndInt(0,isi.length-1);
-        if(isi.length !== 0){                     
+        if(isi.length !== 0 || isi[rnd] !== ""){                     
           nama.innerText = isi[rnd];
         }
-    },100);
-    stopAcak.addEventListener("click", (event)=>{
-      clearInterval(namaAcak);
-      numStop = rnd;
-    })
+        numStop = rnd;
+    }, second);
+    i=i+0.5;
+  }
+  setTimeout(() => {
+    acakNama.removeAttribute("disabled");
+    acakNama.innerHTML = `Acak Nama`;
+    hideKeluarkanNama.style.display = "block";
+    
+  }, maxSecond);
   }
 //fungsi menjalankan dashboard pengacak
 function tampilAcak(arrName) {
   const nama = document.getElementById("nama");
   const kirimNama = document.getElementById("kirimNama");
-  const stopAcak = document.getElementById("stopAcak");
   const keluarkanNama = document.getElementById("keluarkanNama");
+  const hideKeluarkanNama = document.getElementById("hideKeluarkanNama");
   const tBody = document.getElementById("tBody");
   const tidakAdaData = document.getElementById("tidakAdaData");
   const hdhTetap = document.getElementById("hdhTetap");
   const acakNama = document.getElementById("acakNama");
+  let rnd = 0;
   acakNama.addEventListener("click", (event)=>{                    
     pengacak(arrName,nama);
   })
-  let rnd = 0;
   let i = 0;                
   keluarkanNama.addEventListener("click",(event)=>{
     event.preventDefault();
-    if(hadiah !== ""){
+    if(hadiah !== "" && nama.innerText !== "XXXX XXXX"){
       tidakAdaData.style.display = "none";
       i++;
       if(arrName.length !== 0){
@@ -97,8 +113,7 @@ function tampilAcak(arrName) {
         alert("Nama sudah habis!");
       }
     }else{
-       alert("Hadiah belum ditetapkan! atau Nama belum diacak");
+      alert("Hadiah belum ditetapkan! atau Nama belum diacak");
     }
   })
 }
-            
